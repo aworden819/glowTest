@@ -1,19 +1,11 @@
 const express = require("express");
-const cors = require("cors");
-
 const app = express();
-const PORT = process.env.PORT || 3000; // Railway will use its own port
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(express.json()); // Allows JSON requests
-
-// Example API endpoint
-app.post("/data", (req, res) => {
-    console.log("Received data:", req.body);
-    res.json({ message: "Data received successfully!" });
+app.get("/", (req, res) => {
+  res.send("Hello, your API is running!");
 });
 
-// Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
